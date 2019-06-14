@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from stories.views import Home_View
+#app_name='stories_ref'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home_View,name = "Home_ref"),
-    path('stories/', include('stories.urls')),
+    path('stories/', include('stories.urls',namespace='stories'),name = "stories_ref"),
 ]

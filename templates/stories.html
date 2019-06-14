@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nothing</title>
-</head>
-<body>
-        <p>Stories</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} Stories {% endblock %}
+{% block content %}
+
+    <div class="p-3 mb-2 bg-light text-dark">
+        <h1>Welcome!!!  {{request.user}}</h1>
+        {% if allblogs %}
+        <ul>
+            {% for story in allblogs %}
+            <li><a href="{% url 'stories:blog_number_ref' story.id %}">{{story.title}}</a> </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+              <p>Nothing here!!</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
