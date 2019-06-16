@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block title %} Details of {{blog}} {% endblock %}
 {% block content %}
-<div class="bg-light text-dark">
-    <h3> This will show the details of <b>{{blog}}</b></h3>
-    <img src="{{blog.picture}}">
+<div class="container bg-light text-dark">
     <br>
+    <h3><b>{{blog}}</b></h3>
+    <br>
+    <img src="{{blog.picture}}">
+    <br><br>
     <p> meta_title is <b>{{blog.meta_title}}</b></p>
     <p> content is <b>{{blog.content}}</b></p>
     <p> opinion is <b>{{blog.opinion}}</b></p>
