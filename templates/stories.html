@@ -7,7 +7,16 @@
         {% if allblogs %}
         <ul>
             {% for story in allblogs %}
-            <li><a href="{% url 'stories:blog_number_ref' story.id %}">{{story.title}}</a> </li>
+                <li>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src={{story.picture}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{story.title}}</h5>
+                            <p class="card-text">{{story.description}}</p>
+                            <a href="{% url 'stories:blog_number_ref' story.id %}" class="btn btn-primary">visit</a>
+                        </div>
+                    </div>
+                </li>
             {% endfor %}
         </ul>
         {% else %}
