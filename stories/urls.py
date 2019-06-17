@@ -9,5 +9,5 @@ urlpatterns = [
     path('', stories_view , name = "stories_home_ref"),
     path('share/',share_view, name = "share_ref"),
     path('<int:number>',blog_number, name = "blog_number_ref"),
-    path('create/',CreateBlog,name = "CreateBlog_ref")
+    path('create/',CreateBlog.as_view(),name = "CreateBlog_ref")
 ]

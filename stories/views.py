@@ -1,8 +1,10 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
+from django.views.generic import TemplateView
 from .models import stories,Rating
 # Create your views here.
 #from django.http import HttpResponse,Http404
 from forms import CreateForm
+
 def stories_view(request):
     allblogs = stories.objects.all()
     context = {'allblogs': allblogs}
@@ -21,6 +23,17 @@ def share_view(request):
 def Home_View(request):
     return render(request,"Home.html",{})
 
-def CreateBlog(request):
-    form = CreateForm()
-    return render(request,"create.html",{'form' : form})
+class CreateBlog(TemplateView):
+    TemplateName = 'create.html'
+    def get(self,request):
+        form = CreateForm()
+        return render(request,self.TemplateName,{'form' : form})
+    def post(self,request):
+        form = CreateForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['Title']
+            description = form.cleaned_data['description']
+            content = form.cleaned_data['content']
+            return redirect('stories:CreateBlog_ref')
+
+
