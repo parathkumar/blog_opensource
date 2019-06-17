@@ -13,8 +13,8 @@ def stories_view(request):
 def blog_number(request,number):
 
     blog = get_object_or_404(stories, id = number)
-    rank = get_object_or_404(Rating,id = number)
-    return render(request,"Details.html",{'blog' : stories.objects.get(id=number),'rank' : Rating.objects.get(id=number)})
+    #rank = get_object_or_404(Rating,id = number)'rank' : Rating.objects.get(id=number)
+    return render(request,"Details.html",{'blog' : stories.objects.get(id=number),})
 
 
 def share_view(request):
@@ -31,7 +31,8 @@ class CreateBlog(TemplateView):
     def post(self,request):
         form = CreateForm(request.POST)
         if form.is_valid():
-            title = form.cleaned_data['Title']
+            form.save(commit=True)
+            title = form.cleaned_data['title']
             description = form.cleaned_data['description']
             content = form.cleaned_data['content']
             return redirect('stories:CreateBlog_ref')

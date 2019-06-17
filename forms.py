@@ -1,7 +1,7 @@
 from django import forms
-class CreateForm(forms.Form):
-    Title = forms.CharField(
-        label="Title",
+from stories.models import stories
+class CreateForm(forms.ModelForm):
+    title = forms.CharField(
         max_length=10,
         widget=forms.TextInput(attrs={'style':'max-width: 10em'}),
         required=True
@@ -16,3 +16,6 @@ class CreateForm(forms.Form):
         widget=forms.Textarea()
     )
 
+    class Meta:
+        model = stories
+        fields = ('title','description','content')

@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block title %} Details of {{blog}} {% endblock %}
 {% block content %}
+{% load stories_extras %}
 <div class="container bg-light text-dark">
     <br>
     <h3><b>{{blog}}</b></h3>
     <br>
     <img src="{{blog.picture}}">
     <br><br>
-    <h5>{{blog.meta_title}}</h5>
+    <h5>{{blog.description}}</h5>
     <br>
-    <p> {{blog.content}}</p>
+    <p> {{blog.content|urlize|url_target_blank}}</p>
 </div>
 
 
