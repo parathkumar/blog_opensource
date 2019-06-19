@@ -5,20 +5,18 @@
     <div class="p-3 mb-2 bg-light text-dark">
         <h1>Welcome!!!  {{request.user}}</h1>
         {% if allblogs %}
-        <ul>
+        <div class = "card-columns">
             {% for story in allblogs %}
-                <li>
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src={{story.picture}} alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{story.title}}</h5>
-                            <p class="card-text">{{story.description}}</p>
-                            <a href="{% url 'stories:blog_number_ref' story.id %}" class="btn btn-primary">visit</a>
-                        </div>
+                <div class="card">
+                    <img class="card-img-top" src="{{story.picture}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{story.title}}</h5>
+                        <p class="card-text">{{story.description}}</p>
+                        <a href="{% url 'stories:blog_number_ref' story.id %}" class="btn btn-primary">visit</a>
                     </div>
-                </li>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
         {% else %}
               <p>Nothing here!!</p>
         {% endif %}
