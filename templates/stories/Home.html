@@ -1,0 +1,41 @@
+{% extends 'stories/base.html' %}
+{% block title %} Home {% endblock %}
+{% load static %}
+{% block links %} <link rel="stylesheet" href="{% static 'stories/Home_tiles.css' %}" type="text/css"> {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+        <div class="p-5 mb-2 bg-light text-dark " style="background-image : url('{% static 'stories/paper_back.jpg' %}')" >
+            <!-- <h1>THIS IS THE HOMEPAGE!!</h1>
+            <br>
+            <p><a href="/stories/">click here </a>to view the blogs! </p>
+            <p><a href="/stories/create">click here </a>to create a blog! </p>
+            -->
+
+            <div class="row ml-40 mt-40 ">
+
+                <div class="col-md-3 col-lg-6">
+                    <div class="box15">
+                        <img src="{% static 'stories/Book.jpg' %}" alt="">
+                        <div class="box-content">
+                            <h3 class="title center">Read</h3>
+                            <a href="/stories/" class="stretched-link"></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-lg-6">
+                    <div class="box15">
+                        <img src="{% static 'stories/Write.jpg' %}" alt="">
+                        <div class="box-content">
+                            <h3 class="title center">Write</h3>
+                            <a href="/stories/create/" class="stretched-link"></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}

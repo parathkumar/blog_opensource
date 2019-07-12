@@ -1,6 +1,7 @@
 from django import forms
 from stories.models import stories
 class CreateForm(forms.ModelForm):
+
     title = forms.CharField(
         max_length=10,
         widget=forms.TextInput(attrs={'style':'max-width: 10em'}),
@@ -13,9 +14,17 @@ class CreateForm(forms.ModelForm):
     )
     content = forms.CharField(
         max_length=100000,
-        widget=forms.Textarea()
+        widget=forms.Textarea(),
     )
 
     class Meta:
         model = stories
         fields = ('title','description','content')
+
+class SearchForm(forms.ModelForm):
+
+    search = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'style': 'max-width: 10em'}),
+        required=True,
+    )

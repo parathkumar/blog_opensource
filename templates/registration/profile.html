@@ -1,0 +1,13 @@
+{% extends 'stories/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<br>
+    <div class="container" style="width:70%; text-align:center; background-color:white">
+            <img src="{{user.profile.Display_Picture.url}}" class="rounded-circle account-img" height="100px">
+                <h2 class="account-heading" style="text-transform: uppercase;">{{user.username}}</h2>
+
+        <br>
+    </div>
+{% endblock %}
