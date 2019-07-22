@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.views.generic import TemplateView
 from .models import stories,Rating
+
 # Create your views here.
 #from django.http import HttpResponse,Http404
 from forms import CreateForm,SearchForm
@@ -29,12 +30,14 @@ class CreateBlog(TemplateView):
         form = CreateForm()
         return render(request,self.TemplateName,{'form' : form})
     def post(self,request):
-        form = CreateForm(request.POST)
+        userinstance = stories(author = request.user)
+        form = CreateForm(request.POST or None,request.FILES,instance = userinstance,)
         if form.is_valid():
             form.save(commit=True)
-            title = form.cleaned_data['title']
+            '''title = form.cleaned_data['title']
             description = form.cleaned_data['description']
-            content = form.cleaned_data['content']
+            content = form.cleaned_data['content']'''
+
             return redirect('/stories/')
             #return redirect('stories:CreateBlog_ref')
 
