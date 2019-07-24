@@ -4,10 +4,12 @@
 
     <div class="p-3 mb-2 bg-light text-dark">
         {% if allblogs %}
-        <div class = "card-columns">
+        <div class="container">
+            <div class = "card-columns" >
 
             {% for story in allblogs %}
-                <div class="card shadow-lg">
+                <!--  -->
+                    <div class="card " >
 
                     <img class="card-img-top" src="{{story.picture.url}}" alt="Card image cap">
                     <div class="card-body">
@@ -22,7 +24,8 @@
         </div>
         {% else %}
               <p>Nothing here!!</p>
-        {% endif %}
+        {% endif %}</div>
+
     </div>
 
 {% endblock %}
