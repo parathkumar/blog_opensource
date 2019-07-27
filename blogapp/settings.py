@@ -26,9 +26,9 @@ LOGOUT_REDIRECT_URL = '/'
 SECRET_KEY = '4udft^1r(1$y_x)65wrhwtv_#5ba#6s_xl!1)_x2ziiru6+!2)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['parath.pythonanywhere.com']
 
 
 # Application definition
@@ -130,6 +130,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/parath/blog_root/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
