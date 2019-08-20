@@ -1,0 +1,17 @@
+{% extends 'stories/base.html' %}
+{% block title %} Details of {{blog}} {% endblock %}
+{% block content %}
+{% load stories_extras %}
+<div class="container bg-light text-dark view overlay zoom">
+    <br>
+    <center><h3><b>{{blog}}</b></h3></center>
+    <br>
+    <center><div><img src="{{blog.picture.url}}" style="width:100%"></div></center>
+    <br><br>
+    <h5>{{blog.description}}</h5>
+    <br>
+    <p> {{blog.content|urlize|url_target_blank|linebreaksbr}}</p>
+</div>
+
+
+{% endblock %}

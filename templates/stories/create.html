@@ -1,0 +1,26 @@
+{% extends 'stories/base.html' %}
+{% block title %} Pen a Blog {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if user.is_authenticated %}
+        <br>
+            <div class="container bg-light text-dark">
+
+                <h1 align="center"> WRITE DOWN YOUR BLOG!! </h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-success">Publish</button>
+                </form>
+                <br>
+            </div>
+{% else %}
+    <br><br>
+    <div class="container bg-light text-dark">
+            <p align="center"><b>Please log-in to write a blog!</b> </p>
+            <center><a href="/accounts/login/" class="btn btn-success" role="button">login</a></center>
+    </div>
+
+{% endif %}
+{% endblock %}

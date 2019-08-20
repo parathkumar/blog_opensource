@@ -1,0 +1,38 @@
+{% extends 'stories/base.html' %}
+{% block title %} Stories {% endblock %}
+{% block content %}
+
+    <div class="p-3 mb-2 bg-light text-dark">
+        {% if allblogs %}
+        <div class="container">
+            <div class = "card-columns" >
+
+            {% for story in allblogs %}
+                <!--  -->
+                    <div class="card " >
+
+                    <img class="card-img-top" src="{{story.picture.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">{{story.title}}</h5>
+                        <p class="card-text">{{story.description}}</p>
+                        <p class="card-text"><small class="text-muted">written by <b>{{story.author.username}}</b></small> </p>
+                    </div>
+                    <a href="{% url 'stories:blog_number_ref' story.id %}" class="stretched-link"></a>
+                </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+              <p>Nothing here!!</p>
+        {% endif %}</div>
+
+    </div>
+
+{% endblock %}
+<!--Zoom effect-->
+<!-- <div class="view overlay zoom">
+    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).jpg" class="img-fluid " alt="smaple image">
+    <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+    </div>
+</div> -->
